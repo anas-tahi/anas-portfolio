@@ -1,7 +1,7 @@
 import "./../styles/Skills.css"; 
 import { useState } from "react";
 import { FaReact, FaNodeJs, FaDatabase, FaFigma, FaGitAlt } from "react-icons/fa";
-import { SiMongodb, SiJavascript, SiHtml5, SiCss3, SiVercel, SiRender } from "react-icons/si";
+import { SiMongodb, SiJavascript, SiHtml5, SiVercel, SiRender } from "react-icons/si";
 
 export default function Skills() {
   const [showMore, setShowMore] = useState(false);

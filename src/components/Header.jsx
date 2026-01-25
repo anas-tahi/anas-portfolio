@@ -1,12 +1,11 @@
 import { FaFilePdf } from "react-icons/fa";
 import "./../styles/Header.css";
-import profile from "./../assets/profile.jpeg";
 
 export default function Header() {
   return (
     <header className="header fade-in">
       <div className="profile-wrapper">
-        <img src={profile} alt="Anas Tahir" className="profile-photo" />
+        <img src="/profile.jpeg" alt="Anas Tahir" className="profile-photo" />
       </div>
 
       <h1 className="title">Anas Tahir</h1>

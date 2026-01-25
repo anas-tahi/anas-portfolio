@@ -1,4 +1,4 @@
-import "./../styles/Skills.css"; 
+import "./../styles/Skills.css";
 import { useState } from "react";
 import { FaReact, FaNodeJs, FaDatabase, FaFigma, FaGitAlt } from "react-icons/fa";
 import { SiMongodb, SiJavascript, SiHtml5, SiVercel, SiRender } from "react-icons/si";
@@ -13,8 +13,6 @@ export default function Skills() {
     { name: "Node.js", level: 70, icon: <FaNodeJs /> },
     { name: "MongoDB", level: 70, icon: <SiMongodb /> },
     { name: "SQL", level: 60, icon: <FaDatabase /> },
-
-    // Hidden until "..."
     { name: "Render", level: 70, icon: <SiRender /> },
     { name: "Vercel", level: 70, icon: <SiVercel /> },
     { name: "Figma", level: 70, icon: <FaFigma /> },
@@ -47,10 +45,9 @@ export default function Skills() {
         ))}
       </div>
 
-      {/* Show More Button */}
       <div className="show-more-container">
         <button className="show-more-btn" onClick={() => setShowMore(!showMore)}>
-          {showMore ? "Show Less" : "..."}
+          {showMore ? "Show Less" : "Show More"}
         </button>
       </div>
     </section>

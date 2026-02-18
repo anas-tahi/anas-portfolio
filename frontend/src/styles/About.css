@@ -1,0 +1,11 @@
+.about {
+  max-width: 900px;
+  margin: auto;
+  text-align: center;
+}
+
+.about p {
+  font-size: 20px;
+  color: #c9d1d9;
+  line-height: 1.8;
+}

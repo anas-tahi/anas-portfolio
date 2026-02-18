@@ -1,21 +1,26 @@
 import { FaFilePdf } from "react-icons/fa";
 import "./../styles/Header.css";
 
-export default function Header() {
+export default function Header({ content }) {
+  const profile = content.profile;
+
   return (
     <header className="header fade-in">
       <div className="profile-wrapper">
-        <img src="/profile.jpeg" alt="Anas Tahir" className="profile-photo" />
+        <img
+          src={profile.profilePic}
+          alt={profile.name}
+          className="profile-photo"
+        />
       </div>
 
-      <h1 className="title">Anas Tahir</h1>
-      <p className="subtitle">
-        Frontend Developer • Full‑Stack Projects • Master’s Student
-      </p>
+      <h1 className="title">{profile.name}</h1>
+
+      <p className="subtitle">{profile.title}</p>
 
       <div className="header-links">
         <a
-          href="/cv.pdf"
+          href={profile.cv}
           target="_blank"
           rel="noopener noreferrer"
           className="header-btn cv"
@@ -24,7 +29,7 @@ export default function Header() {
           Preview CV
         </a>
 
-        <a href="/cv.pdf" download className="header-btn cv">
+        <a href={profile.cv} download className="header-btn cv">
           <FaFilePdf className="icon" />
           Download CV
         </a>

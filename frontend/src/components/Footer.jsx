@@ -1,36 +1,45 @@
 import "./../styles/Footer.css";
 import { FaLinkedin, FaGithub, FaEnvelope, FaFilePdf } from "react-icons/fa";
 
-export default function Footer() {
+export default function Footer({ content }) {
+  const links = content.profile.links;
+  const cv = content.profile.cv;
+  const name = content.profile.name;
+
   return (
     <footer className="footer">
       <div className="social-icons">
-        <a href="mailto:anasstahir4@gmail.com">
+
+        {/* Email */}
+        <a href={`mailto:${links.email}`}>
           <FaEnvelope />
         </a>
 
+        {/* LinkedIn */}
         <a
-          href="https://www.linkedin.com/in/anas-tahir-59540b294/"
+          href={links.linkedin}
           target="_blank"
           rel="noopener noreferrer"
         >
           <FaLinkedin />
         </a>
 
+        {/* GitHub */}
         <a
-          href="https://github.com/anas-tahi?tab=repositories"
+          href={links.github}
           target="_blank"
           rel="noopener noreferrer"
         >
           <FaGithub />
         </a>
 
-        <a href="/cv.pdf" download>
+        {/* CV Download */}
+        <a href={cv} download>
           <FaFilePdf />
         </a>
       </div>
 
-      <p>© {new Date().getFullYear()} Anas Tahir — All rights reserved.</p>
+      <p>© {new Date().getFullYear()} {name} — All rights reserved.</p>
     </footer>
   );
 }

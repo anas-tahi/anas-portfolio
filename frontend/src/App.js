@@ -7,25 +7,32 @@ import Projects from "./components/Projects";
 import Contact from "./components/Contact";
 import Footer from "./components/Footer";
 import Loading from "./components/Loading";
+import { getContent } from "./api";
 
 export default function App() {
   const [loading, setLoading] = useState(true);
+  const [content, setContent] = useState(null);
 
   useEffect(() => {
-    setTimeout(() => setLoading(false), 1500);
+    async function load() {
+      const data = await getContent();
+      setContent(data);
+      setLoading(false);
+    }
+    load();
   }, []);
 
-  if (loading) return <Loading />;
+  if (loading || !content) return <Loading />;
 
   return (
     <>
-      <Navbar />
-      <Header />
-      <About />
-      <Skills />
-      <Projects />
-      <Contact />
-      <Footer />
+      <Navbar content={content} />
+      <Header content={content} />
+      <About content={content} />
+      <Skills content={content} />
+      <Projects content={content} />
+      <Contact content={content} />
+      <Footer content={content} />
     </>
   );
 }

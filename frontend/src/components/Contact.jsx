@@ -2,21 +2,26 @@ import useReveal from "../hooks/useReveal";
 import "./../styles/Contact.css";
 import { FaEnvelope, FaLinkedin, FaGithub } from "react-icons/fa";
 
-export default function Contact() {
+export default function Contact({ content }) {
   const revealRef = useReveal();
+
+  const links = content.profile.links;
 
   return (
     <section id="contact" ref={revealRef} className="contact reveal">
       <h2>Contact</h2>
 
       <div className="contact-box">
+
+        {/* Email */}
         <div className="contact-item">
           <FaEnvelope className="icon" />
-          <span>anasstahir4@gmail.com</span>
+          <span>{links.email}</span>
         </div>
 
+        {/* LinkedIn */}
         <a
-          href="https://www.linkedin.com/in/anas-tahir-59540b294/"
+          href={links.linkedin}
           target="_blank"
           rel="noopener noreferrer"
           className="contact-item"
@@ -25,8 +30,9 @@ export default function Contact() {
           <span>LinkedIn Profile</span>
         </a>
 
+        {/* GitHub */}
         <a
-          href="https://github.com/anas-tahi?tab=repositories"
+          href={links.github}
           target="_blank"
           rel="noopener noreferrer"
           className="contact-item"
@@ -34,6 +40,7 @@ export default function Contact() {
           <FaGithub className="icon" />
           <span>GitHub Profile</span>
         </a>
+
       </div>
     </section>
   );

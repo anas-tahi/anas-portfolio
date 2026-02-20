@@ -93,9 +93,14 @@ export default function AdminDashboardModal({ isOpen, onClose, onLogout }) {
     try {
       const uploaded = await uploadFile(file);
       const updated = [...content.projects];
-      updated[index].image = uploaded.path;
+      // Ensure the image path is correctly formatted for production
+      const imagePath = uploaded.path.startsWith('/') ? uploaded.path : '/' + uploaded.path;
+      updated[index].image = imagePath;
+      updated[index].img = imagePath; // Also update img field for compatibility
       setContent({ ...content, projects: updated });
+      alert("Image uploaded successfully!");
     } catch (error) {
+      console.error("Upload error:", error);
       alert("Failed to upload image. Please try again.");
     }
   }

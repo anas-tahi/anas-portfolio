@@ -1,0 +1,81 @@
+{
+  "profile": {
+    "name": "Anas Tahir",
+    "title": "Full Stack Developer",
+    "about": "I am a passionate full stack developer with expertise in modern web technologies. I love creating beautiful and functional applications that solve real-world problems.",
+    "profilePic": "/profile.jpeg",
+    "cv": "/cv.pdf",
+    "links": {
+      "email": "anasstahir4@gmail.com",
+      "linkedin": "https://www.linkedin.com/in/anas-tahir-59540b294/",
+      "github": "https://github.com/anas-tahi"
+    }
+  },
+  "skills": [
+    {
+      "name": "React",
+      "level": 90
+    },
+    {
+      "name": "JavaScript",
+      "level": 85
+    },
+    {
+      "name": "HTML/CSS",
+      "level": 80
+    },
+    {
+      "name": "Node.js",
+      "level": 75
+    },
+    {
+      "name": "Express",
+      "level": 70
+    },
+    {
+      "name": "MongoDB",
+      "level": 65
+    },
+    {
+      "name": "Python",
+      "level": 60
+    },
+    {
+      "name": "Ai",
+      "level": 50
+    }
+  ],
+  "projects": [
+    {
+      "title": "E-commerce Platform",
+      "description": "A full-stack e-commerce solution with payment integration",
+      "image": "/uploads/file-1771561132288-988584032.png",
+      "technologies": [
+        "React",
+        "Node.js",
+        "MongoDB"
+      ],
+      "demoUrl": "#",
+      "githubUrl": "#"
+    },
+    {
+      "title": "Task Management App",
+      "description": "A collaborative task management application",
+      "image": "/uploads/file-1771561137812-253343441.png",
+      "technologies": [
+        "React",
+        "Express",
+        "PostgreSQL"
+      ],
+      "demoUrl": "#",
+      "githubUrl": "#"
+    }
+  ],
+  "contact": {
+    "links": {
+      "email": "your.email@example.com",
+      "linkedin": "https://linkedin.com/in/yourprofile",
+      "github": "https://github.com/yourusername"
+    }
+  }
+}

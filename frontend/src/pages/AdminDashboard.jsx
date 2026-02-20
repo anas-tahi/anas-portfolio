@@ -1,9 +1,13 @@
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { getContent, saveContent, uploadFile } from "../api";
+import "./../styles/AdminDashboard.css";
 
 export default function AdminDashboard() {
   const [content, setContent] = useState(null);
   const [loading, setLoading] = useState(true);
+  const [saving, setSaving] = useState(false);
+  const navigate = useNavigate();
 
   useEffect(() => {
     getContent().then((data) => {
@@ -18,8 +22,23 @@ export default function AdminDashboard() {
   // Save All Changes
   // -----------------------------
   async function save() {
-    await saveContent(content);
-    alert("Saved successfully!");
+    setSaving(true);
+    try {
+      await saveContent(content);
+      alert("Saved successfully!");
+    } catch (error) {
+      alert("Failed to save. Please try again.");
+    } finally {
+      setSaving(false);
+    }
+  }
+
+  // -----------------------------
+  // Logout
+  // -----------------------------
+  function logout() {
+    localStorage.removeItem("adminToken");
+    navigate("/admin/login");
   }
 
   // -----------------------------
@@ -93,8 +112,11 @@ export default function AdminDashboard() {
   }
 
   return (
-    <div style={{ padding: 40, maxWidth: 900, margin: "auto" }}>
-      <h1>Admin Dashboard</h1>
+    <div className="admin-dashboard">
+      <div className="dashboard-header">
+        <h1>Admin Dashboard</h1>
+        <button onClick={logout} className="logout-btn">Logout</button>
+      </div>
 
       {/* ---------------- PROFILE EDITOR ---------------- */}
       <section>
@@ -304,8 +326,8 @@ export default function AdminDashboard() {
 
       <hr />
 
-      <button onClick={save} style={{ marginTop: 20 }}>
-        Save All Changes
+      <button onClick={save} disabled={saving} className="save-btn">
+        {saving ? "Saving..." : "Save All Changes"}
       </button>
     </div>
   );

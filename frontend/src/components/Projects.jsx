@@ -29,14 +29,37 @@ export default function Projects({ content }) {
               setOpenModal(true);
             }}
           >
-            <img
-              src={p.img || "/placeholder.png"}
-              alt="project preview"
-              className="project-img"
-            />
-            <h3>{p.title}</h3>
-            <p className="tech">{p.tech}</p>
-            <p>{p.desc}</p>
+            <div className="project-image-container">
+              <img
+                src={p.image || p.img || "/placeholder1.png"}
+                alt="project preview"
+                className="project-img"
+              />
+              <div className="project-overlay">
+                <span className="view-project">View Details</span>
+              </div>
+            </div>
+            <div className="project-content">
+              <h3>{p.title}</h3>
+              <div className="tech-tags">
+                {(p.technologies || p.tech?.split(',')).map((tech, index) => (
+                  <span key={index} className="tech-tag">{tech.trim()}</span>
+                ))}
+              </div>
+              <p className="project-description">{p.description || p.desc}</p>
+              <div className="project-links">
+                {p.demoUrl && p.demoUrl !== "#" && (
+                  <a href={p.demoUrl} target="_blank" rel="noopener noreferrer" className="project-link demo-link">
+                    Live Demo
+                  </a>
+                )}
+                {p.githubUrl && p.githubUrl !== "#" && (
+                  <a href={p.githubUrl} target="_blank" rel="noopener noreferrer" className="project-link github-link">
+                    GitHub
+                  </a>
+                )}
+              </div>
+            </div>
           </div>
         ))}
       </div>

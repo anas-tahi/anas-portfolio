@@ -27,9 +27,6 @@ A modern, professional portfolio website with admin panel for content management
 
 ## Admin Access
 
-- **Username**: `Anas`
-- **Password**: `Anas`
-
 ## Local Development
 
 ### Prerequisites

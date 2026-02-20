@@ -1,4 +1,6 @@
-const API = "http://localhost:4000";
+const API = process.env.NODE_ENV === "production" 
+  ? "https://anas-portfolio.onrender.com" 
+  : "http://localhost:4000";
 
 export async function login(username, password) {
   const res = await fetch(`${API}/login`, {

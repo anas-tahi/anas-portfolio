@@ -1,5 +1,12 @@
 import "./../styles/Modal.css";
 
+// Get API URL for image paths
+const getApiUrl = () => {
+  return process.env.NODE_ENV === "production" 
+    ? "https://anas-portfolio-jje3.onrender.com" 
+    : "http://localhost:4000";
+};
+
 export default function Modal({ open, onClose, project }) {
   if (!open || !project) return null;
 
@@ -8,11 +15,20 @@ export default function Modal({ open, onClose, project }) {
       <div className="modal-content" onClick={(e) => e.stopPropagation()}>
         
         {/* Project Image */}
-        {project.img && (
+        {(project.img || project.image) && (
           <img
-            src={project.img}
+            src={
+              (project.image && project.image.startsWith('/uploads/')) 
+                ? getApiUrl() + project.image 
+                : (project.img && project.img.startsWith('/uploads/'))
+                ? getApiUrl() + project.img
+                : project.image || project.img
+            }
             alt="project preview"
             className="modal-img"
+            onError={(e) => {
+              e.target.style.display = 'none';
+            }}
           />
         )}
 

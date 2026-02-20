@@ -28,9 +28,10 @@ if (!fs.existsSync(uploadsDir)) {
   fs.mkdirSync(uploadsDir, { recursive: true });
 }
 
-// Serve static files from frontend/public
-app.use('/static', express.static(path.join(__dirname, '../frontend/public')));
+// Serve static files from frontend
 app.use(express.static(path.join(__dirname, '../frontend/public')));
+
+// Serve uploaded files specifically
 app.use('/uploads', express.static(path.join(__dirname, '../frontend/public/uploads')));
 
 // Load portfolio content from file or use defaults

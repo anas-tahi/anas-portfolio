@@ -1,6 +1,13 @@
 import { useEffect, useState } from "react";
 import { getContent, saveContent, uploadFile } from "../api";
 
+// Get API URL for image paths
+const getApiUrl = () => {
+  return process.env.NODE_ENV === "production" 
+    ? "https://anas-portfolio-jje3.onrender.com" 
+    : "http://localhost:4000";
+};
+
 export default function AdminDashboardModal({ isOpen, onClose, onLogout }) {
   const [content, setContent] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -283,7 +290,18 @@ export default function AdminDashboardModal({ isOpen, onClose, onLogout }) {
                   />
                   {project.image && (
                     <div className="current-image">
-                      <img src={project.image} alt="Current project" style={{maxWidth: '100px', marginTop: '10px'}} />
+                      <img 
+                        src={
+                          project.image.startsWith('/uploads/') 
+                            ? getApiUrl() + project.image 
+                            : project.image
+                        } 
+                        alt="Current project" 
+                        style={{maxWidth: '100px', marginTop: '10px'}} 
+                        onError={(e) => {
+                          e.target.src = "/placeholder1.png";
+                        }}
+                      />
                       <p>Current: {project.image}</p>
                     </div>
                   )}

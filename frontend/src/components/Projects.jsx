@@ -3,6 +3,13 @@ import useReveal from "../hooks/useReveal";
 import Modal from "./Modal";
 import "./../styles/Projects.css";
 
+// Get API URL for image paths
+const getApiUrl = () => {
+  return process.env.NODE_ENV === "production" 
+    ? "https://anas-portfolio-jje3.onrender.com" 
+    : "http://localhost:4000";
+};
+
 export default function Projects({ content }) {
   const revealRef = useReveal();
   const [openModal, setOpenModal] = useState(false);
@@ -31,9 +38,18 @@ export default function Projects({ content }) {
           >
             <div className="project-image-container">
               <img
-                src={p.image || p.img || "/placeholder1.png"}
+                src={
+                  (p.image && p.image.startsWith('/uploads/')) 
+                    ? getApiUrl() + p.image 
+                    : (p.img && p.img.startsWith('/uploads/'))
+                    ? getApiUrl() + p.img
+                    : p.image || p.img || "/placeholder1.png"
+                }
                 alt="project preview"
                 className="project-img"
+                onError={(e) => {
+                  e.target.src = "/placeholder1.png";
+                }}
               />
               <div className="project-overlay">
                 <span className="view-project">View Details</span>

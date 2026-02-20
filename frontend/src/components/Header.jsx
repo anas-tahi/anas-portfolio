@@ -1,3 +1,4 @@
+import { FaFilePdf } from "react-icons/fa";
 import "./../styles/Header.css";
 
 export default function Header({ content }) {
@@ -18,6 +19,16 @@ export default function Header({ content }) {
       <p className="subtitle">{profile.title}</p>
 
       <div className="header-links">
+        <a
+          href={profile.cv}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="header-btn cv"
+        >
+          <FaFilePdf className="icon" />
+          Preview CV
+        </a>
+
         <a href="#contact" className="header-btn hire">
           Hire Me
         </a>

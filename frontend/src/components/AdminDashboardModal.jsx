@@ -70,6 +70,8 @@ export default function AdminDashboardModal({ isOpen, onClose, onLogout }) {
     const title = prompt("Project title:");
     const desc = prompt("Description:");
     const tech = prompt("Technologies (comma separated):");
+    const demoUrl = prompt("Demo URL (optional):");
+    const githubUrl = prompt("GitHub URL (optional):");
     if (!title || !desc || !tech) return;
     setContent({
       ...content,
@@ -80,8 +82,8 @@ export default function AdminDashboardModal({ isOpen, onClose, onLogout }) {
           description: desc, 
           technologies: tech.split(',').map(t => t.trim()),
           image: "/placeholder1.png",
-          demoUrl: "#",
-          githubUrl: "#"
+          demoUrl: demoUrl || "#",
+          githubUrl: githubUrl || "#"
         }
       ]
     });
@@ -277,6 +279,32 @@ export default function AdminDashboardModal({ isOpen, onClose, onLogout }) {
                     onChange={(e) => {
                       const updated = [...content.projects];
                       updated[i].technologies = e.target.value.split(',').map(t => t.trim());
+                      setContent({ ...content, projects: updated });
+                    }}
+                  />
+                </div>
+                <div className="form-group">
+                  <label>Demo URL</label>
+                  <input
+                    type="url"
+                    value={project.demoUrl || ''}
+                    placeholder="https://example.com"
+                    onChange={(e) => {
+                      const updated = [...content.projects];
+                      updated[i].demoUrl = e.target.value;
+                      setContent({ ...content, projects: updated });
+                    }}
+                  />
+                </div>
+                <div className="form-group">
+                  <label>GitHub URL</label>
+                  <input
+                    type="url"
+                    value={project.githubUrl || ''}
+                    placeholder="https://github.com/username/repo"
+                    onChange={(e) => {
+                      const updated = [...content.projects];
+                      updated[i].githubUrl = e.target.value;
                       setContent({ ...content, projects: updated });
                     }}
                   />

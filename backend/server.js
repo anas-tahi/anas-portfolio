@@ -39,13 +39,37 @@ let portfolioContent;
 
 function loadPortfolioContent() {
   try {
+    // Try to load main data file first
     const dataPath = path.join(__dirname, 'portfolio-data.json');
     if (fs.existsSync(dataPath)) {
       const data = fs.readFileSync(dataPath, 'utf8');
-      return JSON.parse(data);
+      const parsed = JSON.parse(data);
+      
+      // Check if data is valid (has required fields)
+      if (parsed && parsed.profile && parsed.profile.name) {
+        console.log('Loaded main data file:', dataPath);
+        return parsed;
+      } else {
+        console.log('Main data file is invalid, trying backup');
+      }
+    }
+    
+    // If main file doesn't exist or is invalid, try backup
+    const backupPath = path.join(__dirname, 'portfolio-data-backup.json');
+    if (fs.existsSync(backupPath)) {
+      const data = fs.readFileSync(backupPath, 'utf8');
+      const parsed = JSON.parse(data);
+      
+      if (parsed && parsed.profile && parsed.profile.name) {
+        console.log('Loaded backup data file:', backupPath);
+        // Restore main file from backup
+        fs.writeFileSync(dataPath, JSON.stringify(parsed, null, 2));
+        console.log('Restored main file from backup');
+        return parsed;
+      }
     }
   } catch (error) {
-    console.log('No saved data found, using defaults');
+    console.log('Error loading saved data, using defaults:', error.message);
   }
   
   // Default content
@@ -140,7 +164,12 @@ app.post('/save', (req, res) => {
     const filePath = path.join(__dirname, 'portfolio-data.json');
     fs.writeFileSync(filePath, JSON.stringify(portfolioContent, null, 2));
     
+    // Also save to backup location (in case of deployment reset)
+    const backupPath = path.join(__dirname, 'portfolio-data-backup.json');
+    fs.writeFileSync(backupPath, JSON.stringify(portfolioContent, null, 2));
+    
     console.log('Content saved successfully to:', filePath);
+    console.log('Backup saved to:', backupPath);
     console.log('Updated portfolio content:', JSON.stringify(portfolioContent, null, 2));
     
     res.json({ success: true, message: 'Content saved successfully', data: portfolioContent });

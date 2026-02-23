@@ -119,21 +119,39 @@ app.post('/login', (req, res) => {
 
 app.post('/save', (req, res) => {
   try {
+    console.log('Received save request:', req.body);
     const updatedContent = req.body;
+    
+    // Validate required fields
+    if (!updatedContent) {
+      return res.status(400).json({ success: false, message: 'No content provided' });
+    }
     
     // Update the in-memory content
     Object.assign(portfolioContent, updatedContent);
     
-    // Save to file for persistence
-    fs.writeFileSync(
-      path.join(__dirname, 'portfolio-data.json'),
-      JSON.stringify(portfolioContent, null, 2)
-    );
+    // Ensure directory exists
+    const dataDir = path.dirname(path.join(__dirname, 'portfolio-data.json'));
+    if (!fs.existsSync(dataDir)) {
+      fs.mkdirSync(dataDir, { recursive: true });
+    }
     
-    res.json({ success: true, message: 'Content saved successfully' });
+    // Save to file for persistence
+    const filePath = path.join(__dirname, 'portfolio-data.json');
+    fs.writeFileSync(filePath, JSON.stringify(portfolioContent, null, 2));
+    
+    console.log('Content saved successfully to:', filePath);
+    console.log('Updated portfolio content:', JSON.stringify(portfolioContent, null, 2));
+    
+    res.json({ success: true, message: 'Content saved successfully', data: portfolioContent });
   } catch (error) {
-    console.error('Save error:', error);
-    res.status(500).json({ success: false, message: 'Failed to save content' });
+    console.error('Save error details:', error);
+    console.error('Error stack:', error.stack);
+    res.status(500).json({ 
+      success: false, 
+      message: 'Failed to save content: ' + error.message,
+      error: error.toString()
+    });
   }
 });
 

@@ -34,11 +34,22 @@ export default function AdminDashboardModal({ isOpen, onClose, onLogout }) {
   async function save() {
     setSaving(true);
     try {
-      await saveContent(content);
-      alert("Saved successfully!");
-      window.location.reload(); // Refresh to show changes
+      console.log('Saving content:', content);
+      const result = await saveContent(content);
+      console.log('Save result:', result);
+      
+      if (result.success) {
+        alert("Saved successfully!");
+        // Wait a moment for the backend to process, then reload
+        setTimeout(() => {
+          window.location.reload();
+        }, 1000);
+      } else {
+        alert("Failed to save: " + (result.message || "Unknown error"));
+      }
     } catch (error) {
-      alert("Failed to save. Please try again.");
+      console.error('Save error:', error);
+      alert("Failed to save. Please try again. Error: " + error.message);
     } finally {
       setSaving(false);
     }

@@ -1,11 +1,11 @@
 .footer {
   text-align: center;
-  padding: 80px 40px;
+  padding: 40px 20px;
   background: linear-gradient(135deg, var(--glass-bg) 0%, rgba(59, 130, 246, 0.05) 100%);
   backdrop-filter: blur(20px);
   border-top: 2px solid var(--border-light);
   color: var(--text-secondary);
-  margin-top: 80px;
+  margin-top: 60px;
   position: relative;
   overflow: hidden;
   animation: fadeInUp 1s cubic-bezier(0.4, 0, 0.2, 1);
@@ -40,6 +40,56 @@
   z-index: 2;
   max-width: 1200px;
   margin: 0 auto;
+}
+
+.quote-section {
+  margin-bottom: 30px;
+  padding: 20px;
+  background: var(--bg-secondary);
+  border-radius: 12px;
+  border: 1px solid var(--border-light);
+}
+
+.inspiring-quote {
+  font-size: 16px;
+  font-style: italic;
+  color: var(--text-primary);
+  margin-bottom: 8px;
+  line-height: 1.4;
+  position: relative;
+  padding-left: 20px;
+}
+
+.inspiring-quote::before {
+  content: '"';
+  position: absolute;
+  left: 0;
+  top: 0;
+  color: var(--primary-500);
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.inspiring-quote::after {
+  content: '"';
+  position: absolute;
+  right: 0;
+  bottom: -8px;
+  color: var(--primary-500);
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.quote-author {
+  font-size: 14px;
+  color: var(--text-secondary);
+  font-weight: 600;
+  text-align: right;
+  margin-bottom: 0;
+}
+
+.social-section {
+  margin-bottom: 20px;
 }
 
 .footer-title {
@@ -157,11 +207,25 @@
 
 @media (max-width: 768px) {
   .footer {
-    padding: 60px 20px;
+    padding: 30px 15px;
+  }
+  
+  .quote-section {
+    margin-bottom: 20px;
+    padding: 15px;
+  }
+  
+  .inspiring-quote {
+    font-size: 14px;
+  }
+  
+  .quote-author {
+    font-size: 12px;
   }
   
   .footer-title {
     font-size: 20px;
+    margin-bottom: 15px;
   }
   
   .social-icons {
@@ -175,6 +239,6 @@
   
   .footer-bottom {
     flex-direction: column;
-    gap: 10px;
+    gap: 8px;
   }
 }

@@ -23,10 +23,14 @@ export default function Navbar({ content, onAdminClick, onLogout }) {
   return (
     <nav className="navbar">
       <div className="logo-container">
-        <img src="/logo.png" alt="Logo" className="logo-img" />
+        <a href="#header" className="logo-link">
+          <img src="/logo.png" alt="Logo" className="logo-img" />
+        </a>
 
-        {/* Dynamic name from backend */}
-        <span className="logo-text">{content.profile.name}</span>
+        {/* Clickable name from backend */}
+        <a href="#header" className="logo-text-link">
+          <span className="logo-text">Anas Tahir</span>
+        </a>
       </div>
 
       <div className="hamburger" onClick={() => setOpen(!open)}>

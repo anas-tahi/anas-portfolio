@@ -55,7 +55,7 @@ function loadPortfolioContent() {
       title: "Full Stack Developer",
       about: "I am a passionate full stack developer with expertise in modern web technologies. I love creating beautiful and functional applications that solve real-world problems.",
       profilePic: "/profile.jpeg",
-      cv: "/cv.pdf",
+      cv: "/mycv.pdf",
       links: {
         email: "your.email@example.com",
         linkedin: "https://linkedin.com/in/yourprofile",

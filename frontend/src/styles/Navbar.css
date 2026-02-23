@@ -20,10 +20,34 @@
   gap: 10px;
 }
 
+.logo-link {
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.logo-link:hover {
+  transform: scale(1.05);
+}
+
 .logo-img {
   width: 40px;
   height: 40px;
   border-radius: 8px;
+  transition: all 0.3s ease;
+}
+
+.logo-img:hover {
+  transform: rotate(10deg) scale(1.1);
+  box-shadow: var(--shadow-md);
+}
+
+.logo-text-link {
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.logo-text-link:hover {
+  transform: translateY(-2px);
 }
 
 .logo-text {
@@ -32,6 +56,12 @@
   color: var(--primary-500);
   text-shadow: 0 2px 4px rgba(99, 102, 241, 0.3);
   animation: textGlow 3s ease-in-out infinite;
+  transition: all 0.3s ease;
+}
+
+.logo-text:hover {
+  color: var(--primary-600);
+  text-shadow: 0 2px 8px rgba(99, 102, 241, 0.5);
 }
 
 .nav-links {

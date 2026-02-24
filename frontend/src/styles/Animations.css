@@ -1,6 +1,12 @@
 /* ============================
    GLOBAL ANIMATIONS
-============================ */
+   =========================== */
+
+/* Smooth scrolling behavior */
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 80px; /* Offset for fixed header */
+}
 
 /* Fade in animations */
 @keyframes fadeInUp {

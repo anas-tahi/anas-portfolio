@@ -8,34 +8,9 @@ export default function Footer({ content }) {
   return (
     <footer className="footer">
       <div className="footer-content">
-        <div className="social-section">
-          <h3 className="social-title">Connect With Me</h3>
-          <div className="social-icons">
-            {/* Email */}
-            <a href={`mailto:${links.email}`} title="Email">
-              <FaEnvelope />
-            </a>
-
-            {/* LinkedIn */}
-            <a
-              href={links.linkedin}
-              target="_blank"
-              rel="noopener noreferrer"
-              title="LinkedIn"
-            >
-              <FaLinkedin />
-            </a>
-
-            {/* GitHub */}
-            <a
-              href={links.github}
-              target="_blank"
-              rel="noopener noreferrer"
-              title="GitHub"
-            >
-              <FaGithub />
-            </a>
-          </div>
+        <div className="impressive-section">
+          <h3 className="impressive-title">Building Tomorrow's Digital Solutions</h3>
+          <p className="impressive-subtitle">Transforming Ideas Into Reality</p>
         </div>
 
         <div className="footer-divider"></div>

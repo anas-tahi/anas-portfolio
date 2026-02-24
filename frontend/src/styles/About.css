@@ -1,6 +1,6 @@
 .about {
   max-width: 900px;
-  margin: 80px auto;
+  margin: 0;
   padding: 60px;
   text-align: center;
   background: var(--glass-bg);
@@ -11,6 +11,9 @@
   position: relative;
   overflow: hidden;
   animation: fadeInUp 1s cubic-bezier(0.4, 0, 0.2, 1);
+  width: 100%;
+  max-width: 100vw;
+  box-sizing: border-box;
 }
 
 .about::before {

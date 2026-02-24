@@ -60,12 +60,32 @@ export default function App() {
         onAdminClick={handleAdminClick}
         onLogout={handleLogout}
       />
-      <Header content={content} />
-      <About content={content} />
-      <Skills content={content} />
-      <Projects content={content} />
-      <Contact content={content} />
-      <Footer content={content} />
+      
+      <div className="main-container">
+        <section id="header" className="horizontal-section">
+          <Header content={content} />
+        </section>
+        
+        <section id="about" className="horizontal-section">
+          <About content={content} />
+        </section>
+        
+        <section id="skills" className="horizontal-section">
+          <Skills content={content} />
+        </section>
+        
+        <section id="projects" className="horizontal-section">
+          <Projects content={content} />
+        </section>
+        
+        <section id="contact" className="horizontal-section">
+          <Contact content={content} />
+        </section>
+        
+        <section id="footer" className="horizontal-section">
+          <Footer content={content} />
+        </section>
+      </div>
       
       <AdminModal
         isOpen={showLoginModal}

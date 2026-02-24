@@ -2,10 +2,39 @@
    GLOBAL ANIMATIONS
    =========================== */
 
-/* Smooth scrolling behavior */
+/* Horizontal scrolling behavior */
 html {
   scroll-behavior: smooth;
-  scroll-padding-top: 80px; /* Offset for fixed header */
+  overflow-x: auto;
+  overflow-y: hidden;
+}
+
+body {
+  overflow-x: auto;
+  overflow-y: hidden;
+  height: 100vh;
+  width: 100vw;
+}
+
+/* Container for horizontal sections */
+.main-container {
+  display: flex;
+  flex-direction: row;
+  width: max-content;
+  height: 100vh;
+  min-height: 100vh;
+}
+
+/* Individual sections */
+.horizontal-section {
+  min-width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 80px 40px;
+  box-sizing: border-box;
 }
 
 /* Fade in animations */

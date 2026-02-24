@@ -1,6 +1,5 @@
 import "./../styles/Skills.css";
 import { useState } from "react";
-import SmallFooter from "./SmallFooter";
 
 export default function Skills({ content }) {
   const [showMore, setShowMore] = useState(false);
@@ -43,8 +42,6 @@ export default function Skills({ content }) {
           {showMore ? "Show Less" : "Show More"}
         </button>
       </div>
-      
-      <SmallFooter />
     </section>
   );
 }

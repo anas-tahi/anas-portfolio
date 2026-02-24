@@ -1,5 +1,4 @@
 import useReveal from "../hooks/useReveal";
-import SmallFooter from "./SmallFooter";
 import "./../styles/Contact.css";
 import { FaEnvelope, FaLinkedin, FaGithub, FaMapMarkerAlt, FaPhone, FaRocket } from "react-icons/fa";
 
@@ -97,8 +96,6 @@ export default function Contact({ content }) {
           </button>
         </div>
       </div>
-      
-      <SmallFooter />
     </section>
   );
 }

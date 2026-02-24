@@ -8,13 +8,6 @@ export default function Footer({ content }) {
   return (
     <footer className="footer">
       <div className="footer-content">
-        <div className="quote-section">
-          <p className="inspiring-quote">
-            "The only way to do great work is to love what you do."
-          </p>
-          <p className="quote-author">- Steve Jobs</p>
-        </div>
-        
         <div className="social-section">
           <h3 className="social-title">Connect With Me</h3>
           <div className="social-icons">

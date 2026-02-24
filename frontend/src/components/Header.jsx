@@ -5,7 +5,7 @@ export default function Header({ content }) {
   const profile = content.profile;
 
   return (
-    <header className="header fade-in">
+    <header id="header" className="header fade-in">
       <div className="profile-wrapper">
         <img
           src={profile.profilePic}

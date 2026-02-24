@@ -42,7 +42,6 @@ export default function Navbar({ content, onAdminClick, onLogout, navigateToPage
         <li><button onClick={() => navigateToPage(2)} className={currentPage === 2 ? "active" : ""}>Skills</button></li>
         <li><button onClick={() => navigateToPage(3)} className={currentPage === 3 ? "active" : ""}>Projects</button></li>
         <li><button onClick={() => navigateToPage(4)} className={currentPage === 4 ? "active" : ""}>Contact</button></li>
-        <li><button onClick={() => navigateToPage(5)} className={currentPage === 5 ? "active" : ""}>Footer</button></li>
         <li className="admin-nav-item">
           {isAdmin ? (
             <button onClick={onLogout} className="admin-logout-btn">

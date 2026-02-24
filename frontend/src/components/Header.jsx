@@ -1,4 +1,5 @@
 import { FaFilePdf } from "react-icons/fa";
+import SmallFooter from "./SmallFooter";
 import "./../styles/Header.css";
 
 export default function Header({ content }) {
@@ -33,6 +34,8 @@ export default function Header({ content }) {
           Hire Me
         </a>
       </div>
+      
+      <SmallFooter />
     </header>
   );
 }

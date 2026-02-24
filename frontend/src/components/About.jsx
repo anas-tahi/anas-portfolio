@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import useReveal from "../hooks/useReveal";
+import SmallFooter from "./SmallFooter";
 import "./../styles/About.css";
 
 const quotes = [
@@ -58,6 +59,8 @@ export default function About({ content }) {
         </p>
         <p className="quote-author">- {currentQuote.author}</p>
       </div>
+      
+      <SmallFooter />
     </section>
   );
 }

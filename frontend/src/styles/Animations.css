@@ -27,7 +27,7 @@ body {
 .main-container {
   display: flex;
   flex-direction: row;
-  width: 600vw; /* 6 sections * 100vw */
+  width: 500vw; /* 5 sections * 100vw */
   height: 100vh;
   transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
   will-change: transform;

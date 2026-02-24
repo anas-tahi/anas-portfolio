@@ -1,6 +1,7 @@
 import { useState } from "react";
 import useReveal from "../hooks/useReveal";
 import Modal from "./Modal";
+import SmallFooter from "./SmallFooter";
 import "./../styles/Projects.css";
 
 // Get API URL for image paths
@@ -94,6 +95,8 @@ export default function Projects({ content }) {
         onClose={() => setOpenModal(false)}
         project={selectedProject}
       />
+      
+      <SmallFooter />
     </section>
   );
 }

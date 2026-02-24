@@ -59,7 +59,7 @@ export default function App() {
   const handleKeyDown = (e) => {
     if (e.key === 'ArrowLeft' && currentPage > 0) {
       navigateToPage(currentPage - 1);
-    } else if (e.key === 'ArrowRight' && currentPage < 5) {
+    } else if (e.key === 'ArrowRight' && currentPage < 4) {
       navigateToPage(currentPage + 1);
     }
   };
@@ -105,10 +105,6 @@ export default function App() {
         
         <section id="contact" className="horizontal-section">
           <Contact content={content} />
-        </section>
-        
-        <section id="footer" className="horizontal-section">
-          <Footer content={content} />
         </section>
       </div>
       

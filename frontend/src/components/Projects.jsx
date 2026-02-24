@@ -26,10 +26,10 @@ export default function Projects({ content }) {
     <section id="projects" ref={revealRef} className="projects reveal">
       <h2>Projects</h2>
 
-      <div className="project-list">
+      <div className="project-list-horizontal">
         {visibleProjects.map((p, i) => (
           <div
-            className="project-card"
+            className="project-card-horizontal"
             key={i}
             onClick={() => {
               setSelectedProject(p);

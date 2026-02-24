@@ -21,10 +21,47 @@
    PROJECT GRID
 ============================ */
 
+.project-list-horizontal {
+  display: flex;
+  gap: 30px;
+  overflow-x: auto;
+  padding: 20px 0;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.project-list-horizontal::-webkit-scrollbar {
+  display: none;
+}
+
 .project-list {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 25px;
+}
+
+.project-card-horizontal {
+  background: var(--bg-primary);
+  border: 1px solid var(--border-light);
+  padding: 0;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  overflow: hidden;
+  position: relative;
+  box-shadow: var(--shadow-md);
+  min-width: 350px;
+  max-width: 350px;
+  flex-shrink: 0;
+  scroll-snap-align: start;
+}
+
+.project-card-horizontal:hover {
+  transform: translateY(-8px) scale(1.02);
+  border-color: var(--primary-300);
+  box-shadow: var(--shadow-xl);
 }
 
 .project-card {

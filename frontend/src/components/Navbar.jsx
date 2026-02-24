@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import "./../styles/Navbar.css";
 
-export default function Navbar({ content, onAdminClick, onLogout }) {
+export default function Navbar({ content, onAdminClick, onLogout, navigateToPage, currentPage }) {
   const [open, setOpen] = useState(false);
   const [isAdmin, setIsAdmin] = useState(false);
 
@@ -23,14 +23,14 @@ export default function Navbar({ content, onAdminClick, onLogout }) {
   return (
     <nav className="navbar">
       <div className="logo-container">
-        <a href="#header" className="logo-link">
+        <button onClick={() => navigateToPage(0)} className="logo-link">
           <img src="/logo.png" alt="Logo" className="logo-img" />
-        </a>
+        </button>
 
         {/* Clickable name from backend */}
-        <a href="#header" className="logo-text-link">
+        <button onClick={() => navigateToPage(0)} className="logo-text-link">
           <span className="logo-text">Anas Tahir</span>
-        </a>
+        </button>
       </div>
 
       <div className="hamburger" onClick={() => setOpen(!open)}>
@@ -38,10 +38,11 @@ export default function Navbar({ content, onAdminClick, onLogout }) {
       </div>
 
       <ul className={open ? "nav-links open" : "nav-links"}>
-        <li><a href="#about">About</a></li>
-        <li><a href="#skills">Skills</a></li>
-        <li><a href="#projects">Projects</a></li>
-        <li><a href="#contact">Contact</a></li>
+        <li><button onClick={() => navigateToPage(1)} className={currentPage === 1 ? "active" : ""}>About</button></li>
+        <li><button onClick={() => navigateToPage(2)} className={currentPage === 2 ? "active" : ""}>Skills</button></li>
+        <li><button onClick={() => navigateToPage(3)} className={currentPage === 3 ? "active" : ""}>Projects</button></li>
+        <li><button onClick={() => navigateToPage(4)} className={currentPage === 4 ? "active" : ""}>Contact</button></li>
+        <li><button onClick={() => navigateToPage(5)} className={currentPage === 5 ? "active" : ""}>Footer</button></li>
         <li className="admin-nav-item">
           {isAdmin ? (
             <button onClick={onLogout} className="admin-logout-btn">

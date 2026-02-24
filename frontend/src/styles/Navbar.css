@@ -64,6 +64,33 @@
   text-shadow: 0 2px 8px rgba(99, 102, 241, 0.5);
 }
 
+.nav-links button {
+  background: none;
+  border: none;
+  color: var(--text-primary);
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  padding: 8px 16px;
+  border-radius: 8px;
+  text-decoration: none;
+  position: relative;
+}
+
+.nav-links button:hover {
+  color: var(--primary-500);
+  background: var(--bg-secondary);
+  transform: translateY(-2px);
+}
+
+.nav-links button.active {
+  color: var(--primary-600);
+  background: var(--gradient-primary);
+  color: white;
+  box-shadow: var(--shadow-md);
+}
+
 .nav-links {
   list-style: none;
   display: flex;

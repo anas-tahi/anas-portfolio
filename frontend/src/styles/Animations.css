@@ -2,32 +2,40 @@
    GLOBAL ANIMATIONS
    =========================== */
 
-/* Horizontal scrolling behavior */
+/* Hide scrollbars */
 html {
   scroll-behavior: smooth;
-  overflow-x: auto;
+  overflow-x: hidden;
   overflow-y: hidden;
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE and Edge */
+}
+
+html::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Opera */
 }
 
 body {
-  overflow-x: auto;
-  overflow-y: hidden;
+  overflow: hidden;
   height: 100vh;
   width: 100vw;
+  margin: 0;
+  padding: 0;
 }
 
 /* Container for horizontal sections */
 .main-container {
   display: flex;
   flex-direction: row;
-  width: max-content;
+  width: 600vw; /* 6 sections * 100vw */
   height: 100vh;
-  min-height: 100vh;
+  transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+  will-change: transform;
 }
 
 /* Individual sections */
 .horizontal-section {
-  min-width: 100vw;
+  width: 100vw;
   height: 100vh;
   display: flex;
   flex-direction: column;
@@ -35,6 +43,60 @@ body {
   align-items: center;
   padding: 80px 40px;
   box-sizing: border-box;
+  flex-shrink: 0;
+}
+
+/* Page transition animations */
+@keyframes slideInFromRight {
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInFromLeft {
+  from {
+    transform: translateX(-100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideOutToLeft {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-100%);
+  }
+}
+
+@keyframes slideOutToRight {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(100%);
+  }
+}
+
+.page-enter-right {
+  animation: slideInFromRight 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.page-enter-left {
+  animation: slideInFromLeft 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.page-exit-left {
+  animation: slideOutToLeft 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.page-exit-right {
+  animation: slideOutToRight 0.8s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 /* Fade in animations */

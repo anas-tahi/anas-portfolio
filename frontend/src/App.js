@@ -20,6 +20,7 @@ export default function App() {
   const [showLoginModal, setShowLoginModal] = useState(false);
   const [showDashboardModal, setShowDashboardModal] = useState(false);
   const [isAdmin, setIsAdmin] = useState(false);
+  const [currentPage, setCurrentPage] = useState(0);
 
   useEffect(() => {
     async function load() {
@@ -51,6 +52,23 @@ export default function App() {
     localStorage.removeItem("adminToken");
   };
 
+  const navigateToPage = (pageIndex) => {
+    setCurrentPage(pageIndex);
+  };
+
+  const handleKeyDown = (e) => {
+    if (e.key === 'ArrowLeft' && currentPage > 0) {
+      navigateToPage(currentPage - 1);
+    } else if (e.key === 'ArrowRight' && currentPage < 5) {
+      navigateToPage(currentPage + 1);
+    }
+  };
+
+  useEffect(() => {
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [currentPage]);
+
   if (loading || !content) return <Loading />;
 
   return (
@@ -59,9 +77,16 @@ export default function App() {
         content={content} 
         onAdminClick={handleAdminClick}
         onLogout={handleLogout}
+        navigateToPage={navigateToPage}
+        currentPage={currentPage}
       />
       
-      <div className="main-container">
+      <div 
+        className="main-container"
+        style={{
+          transform: `translateX(-${currentPage * 100}vw)`
+        }}
+      >
         <section id="header" className="horizontal-section">
           <Header content={content} />
         </section>

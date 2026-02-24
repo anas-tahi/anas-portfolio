@@ -9,10 +9,12 @@ import Footer from "./components/Footer";
 import Loading from "./components/Loading";
 import AdminModal from "./components/AdminModal";
 import AdminDashboardModal from "./components/AdminDashboardModal";
+import ThemeToggle from "./components/ThemeToggle";
 import { getContent } from "./api";
 import "./styles/AdminModal.css";
 import "./styles/Colors.css";
 import "./styles/Animations.css";
+import "./styles/DarkTheme.css";
 
 export default function App() {
   const [loading, setLoading] = useState(true);
@@ -73,6 +75,8 @@ export default function App() {
 
   return (
     <>
+      <ThemeToggle />
+      
       <Navbar 
         content={content} 
         onAdminClick={handleAdminClick}

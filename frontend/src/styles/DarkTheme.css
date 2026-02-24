@@ -1,0 +1,81 @@
+/* Dark Theme Variables */
+[data-theme="dark"] {
+  --bg-primary: #0a0a0a;
+  --bg-secondary: #1a1a1a;
+  --bg-tertiary: #2a2a2a;
+  --text-primary: #ffffff;
+  --text-secondary: #b0b0b0;
+  --text-muted: #808080;
+  --border-light: #333333;
+  --border-medium: #404040;
+  --border-dark: #1a1a1a;
+  --glass-bg: rgba(26, 26, 26, 0.8);
+  --glass-border: rgba(255, 255, 255, 0.1);
+  --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.3);
+  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.4);
+  --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.5);
+  --shadow-xl: 0 12px 32px rgba(0, 0, 0, 0.6);
+  --shadow-2xl: 0 20px 48px rgba(0, 0, 0, 0.7);
+}
+
+/* Dark theme specific adjustments */
+[data-theme="dark"] body {
+  background: radial-gradient(ellipse at top, #1a1a1a 0%, #0a0a0a 100%);
+}
+
+[data-theme="dark"] .header {
+  background: rgba(10, 10, 10, 0.9);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+[data-theme="dark"] .about,
+[data-theme="dark"] .skills-section,
+[data-theme="dark"] .projects,
+[data-theme="dark"] .contact {
+  background: rgba(10, 10, 10, 0.9);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+[data-theme="dark"] .navbar {
+  background: rgba(10, 10, 10, 0.95);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+[data-theme="dark"] .project-card,
+[data-theme="dark"] .project-card-horizontal,
+[data-theme="dark"] .skill-card,
+[data-theme="dark"] .contact-card {
+  background: rgba(26, 26, 26, 0.9);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+[data-theme="dark"] .contact-footer {
+  background: rgba(26, 26, 26, 0.9);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Enhanced dark theme gradients */
+[data-theme="dark"] {
+  --gradient-primary: linear-gradient(135deg, #ff6b6b 0%, #ee5a24 100%);
+  --gradient-secondary: linear-gradient(135deg, #4ecdc4 0%, #44a08d 100%);
+  --gradient-accent: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+  --gradient-hero: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+/* Dark theme specific animations */
+[data-theme="dark"] .profile-photo::before {
+  background: linear-gradient(45deg, #ff6b6b, #4ecdc4, #f093fb, #ff6b6b);
+}
+
+[data-theme="dark"] .header::before {
+  background: conic-gradient(
+    from 0deg at 50% 50%,
+    #ff6b6b 0deg,
+    transparent 60deg,
+    #4ecdc4 120deg,
+    transparent 180deg,
+    #f093fb 240deg,
+    transparent 300deg,
+    #ff6b6b 360deg
+  );
+}

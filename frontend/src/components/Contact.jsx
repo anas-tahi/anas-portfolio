@@ -10,11 +10,11 @@ export default function Contact({ content }) {
   return (
     <section id="contact" ref={revealRef} className="contact reveal">
       <div className="contact-header">
-        <h2>Let's Connect</h2>
-        <p className="contact-subtitle">Ready to bring your ideas to life? Let's build something amazing together!</p>
+        <h2>Let's Create Something Extraordinary</h2>
+        <p className="contact-subtitle">Transform your vision into reality with cutting-edge solutions and innovative development</p>
         <div className="contact-badge">
           <FaRocket className="rocket-icon" />
-          <span>Available for Projects</span>
+          <span>Open to Exciting Opportunities</span>
         </div>
       </div>
 
@@ -88,11 +88,11 @@ export default function Contact({ content }) {
 
       <div className="contact-footer">
         <div className="cta-section">
-          <h3>Ready to Start Your Project?</h3>
-          <p>Let's discuss how I can help bring your vision to reality</p>
+          <h3>Ready to Build the Future Together?</h3>
+          <p>Let's collaborate on innovative solutions that push boundaries and exceed expectations</p>
           <button className="cta-button">
             <FaEnvelope className="button-icon" />
-            Send Message
+            Start the Conversation
           </button>
         </div>
       </div>

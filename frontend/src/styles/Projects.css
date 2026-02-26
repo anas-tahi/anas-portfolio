@@ -55,8 +55,8 @@
 ============================ */
 
 .projects-showcase {
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
   gap: 40px;
   margin-bottom: 50px;
 }
@@ -72,9 +72,6 @@
   position: relative;
   animation: slideInUp 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
   opacity: 0;
-  display: flex;
-  align-items: center;
-  min-height: 300px;
 }
 
 .project-showcase-item:hover {
@@ -113,11 +110,8 @@
 
 .project-visual {
   position: relative;
-  width: 300px;
   height: 250px;
   overflow: hidden;
-  flex-shrink: 0;
-  margin-right: 40px;
 }
 
 .project-image-wrapper {
@@ -215,10 +209,6 @@
 .project-info {
   padding: 30px;
   position: relative;
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
 }
 
 .project-number {
@@ -566,12 +556,8 @@
 
 @media (max-width: 1200px) {
   .projects-showcase {
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
     gap: 30px;
-  }
-  
-  .project-visual {
-    width: 250px;
-    margin-right: 30px;
   }
 }
 
@@ -589,19 +575,12 @@
   }
   
   .projects-showcase {
+    grid-template-columns: 1fr;
     gap: 25px;
   }
   
-  .project-showcase-item {
-    flex-direction: column;
-    min-height: auto;
-  }
-  
   .project-visual {
-    width: 100%;
     height: 200px;
-    margin-right: 0;
-    margin-bottom: 20px;
   }
   
   .project-info {

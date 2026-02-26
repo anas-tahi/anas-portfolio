@@ -29,6 +29,14 @@ export default function Projects({ content }) {
         <p className="projects-subtitle">Explore my latest work and creative solutions</p>
       </div>
 
+      <div className="scroll-indicator">
+        <div className="scroll-arrow">
+          <span>←</span>
+          <span>Scroll to explore</span>
+          <span>→</span>
+        </div>
+      </div>
+
       <div className="projects-showcase">
         {visibleProjects.map((p, i) => (
           <div

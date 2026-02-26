@@ -1,6 +1,7 @@
-import { useState } from "react";
-import useReveal from "../hooks/useReveal";
+import { useState, useEffect } from "react";
 import Modal from "./Modal";
+import useReveal from "../hooks/useReveal";
+import getApiUrl from "../utils/apiUrl";
 import "./../styles/Projects.css";
 
 // Get API URL for image paths
@@ -22,6 +23,21 @@ export default function Projects({ content }) {
   // Show first 3 unless "Show More" is clicked
   const visibleProjects = showMore ? projects : projects.slice(0, 3);
 
+  // Scroll functions
+  const scrollUp = () => {
+    window.scrollBy({
+      top: -300,
+      behavior: 'smooth'
+    });
+  };
+
+  const scrollDown = () => {
+    window.scrollBy({
+      top: 300,
+      behavior: 'smooth'
+    });
+  };
+
   return (
     <section id="projects" ref={revealRef} className="projects reveal">
       <div className="projects-header">
@@ -34,6 +50,14 @@ export default function Projects({ content }) {
           <span>←</span>
           <span>Scroll to explore</span>
           <span>→</span>
+        </div>
+      </div>
+
+      <div className="vertical-scroll-indicator">
+        <div className="vertical-scroll-arrow">
+          <div className="arrow-up" onClick={scrollUp}>↑</div>
+          <div className="scroll-text">Scroll</div>
+          <div className="arrow-down" onClick={scrollDown}>↓</div>
         </div>
       </div>
 

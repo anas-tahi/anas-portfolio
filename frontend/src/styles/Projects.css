@@ -55,10 +55,19 @@
 ============================ */
 
 .projects-showcase {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-  gap: 40px;
+  display: flex;
+  gap: 30px;
+  overflow-x: auto;
+  padding: 20px 0;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
   margin-bottom: 50px;
+}
+
+.projects-showcase::-webkit-scrollbar {
+  display: none;
 }
 
 .project-showcase-item {
@@ -72,6 +81,10 @@
   position: relative;
   animation: slideInUp 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
   opacity: 0;
+  min-width: 400px;
+  max-width: 400px;
+  flex-shrink: 0;
+  scroll-snap-align: start;
 }
 
 .project-showcase-item:hover {
@@ -556,8 +569,12 @@
 
 @media (max-width: 1200px) {
   .projects-showcase {
-    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-    gap: 30px;
+    gap: 25px;
+  }
+  
+  .project-showcase-item {
+    min-width: 350px;
+    max-width: 350px;
   }
 }
 
@@ -575,8 +592,12 @@
   }
   
   .projects-showcase {
-    grid-template-columns: 1fr;
-    gap: 25px;
+    gap: 20px;
+  }
+  
+  .project-showcase-item {
+    min-width: 300px;
+    max-width: 300px;
   }
   
   .project-visual {
@@ -613,6 +634,15 @@
 @media (max-width: 480px) {
   .projects-header h2 {
     font-size: 28px;
+  }
+  
+  .projects-showcase {
+    gap: 15px;
+  }
+  
+  .project-showcase-item {
+    min-width: 280px;
+    max-width: 280px;
   }
   
   .project-visual {

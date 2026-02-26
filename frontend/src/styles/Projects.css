@@ -56,41 +56,63 @@
 
 .projects-showcase {
   display: flex;
-  gap: 30px;
+  gap: 40px;
   overflow-x: auto;
-  padding: 20px 0;
+  padding: 40px 20px;
   scroll-snap-type: x mandatory;
   -webkit-overflow-scrolling: touch;
   scrollbar-width: none;
   -ms-overflow-style: none;
   margin-bottom: 50px;
+  position: relative;
 }
 
 .projects-showcase::-webkit-scrollbar {
   display: none;
 }
 
+.projects-showcase::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(90deg, 
+    rgba(99, 102, 241, 0.05) 0%, 
+    transparent 10%, 
+    transparent 90%, 
+    rgba(139, 92, 246, 0.05) 100%);
+  pointer-events: none;
+  z-index: 1;
+}
+
 .project-showcase-item {
   background: var(--glass-bg);
-  backdrop-filter: blur(20px);
-  border: 1px solid var(--glass-border);
-  border-radius: 24px;
+  backdrop-filter: blur(25px);
+  border: 2px solid var(--glass-border);
+  border-radius: 32px;
   overflow: hidden;
   cursor: pointer;
-  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
   position: relative;
   animation: slideInUp 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
   opacity: 0;
-  min-width: 400px;
-  max-width: 400px;
+  min-width: 450px;
+  max-width: 450px;
   flex-shrink: 0;
   scroll-snap-align: start;
+  box-shadow: var(--shadow-xl);
+  z-index: 2;
 }
 
 .project-showcase-item:hover {
-  transform: translateY(-15px) scale(1.02);
-  box-shadow: var(--shadow-2xl);
-  border-color: var(--primary-300);
+  transform: translateY(-20px) scale(1.05) rotateX(5deg);
+  box-shadow: 0 30px 60px rgba(99, 102, 241, 0.3), 0 0 40px rgba(139, 92, 246, 0.2);
+  border-color: var(--primary-400);
+  background: linear-gradient(135deg, 
+    rgba(99, 102, 241, 0.1) 0%, 
+    rgba(139, 92, 246, 0.1) 100%);
 }
 
 .project-showcase-item::before {
@@ -123,8 +145,9 @@
 
 .project-visual {
   position: relative;
-  height: 250px;
+  height: 280px;
   overflow: hidden;
+  border-radius: 30px 30px 0 0;
 }
 
 .project-image-wrapper {
@@ -138,7 +161,8 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+  filter: brightness(1.1) contrast(1.05);
 }
 
 .project-glow {
@@ -158,12 +182,15 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background: linear-gradient(135deg, rgba(99, 102, 241, 0.8) 0%, rgba(139, 92, 246, 0.8) 100%);
+  background: linear-gradient(135deg, 
+    rgba(99, 102, 241, 0.9) 0%, 
+    rgba(139, 92, 246, 0.9) 100%);
   display: flex;
   align-items: center;
   justify-content: center;
   opacity: 0;
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  backdrop-filter: blur(10px);
 }
 
 .overlay-content {
@@ -187,8 +214,8 @@
 }
 
 .project-showcase-item:hover .project-image {
-  transform: scale(1.1);
-  filter: brightness(0.8);
+  transform: scale(1.15) rotate(2deg);
+  filter: brightness(0.7) contrast(1.2);
 }
 
 .project-showcase-item:hover .project-glow {
@@ -220,8 +247,12 @@
 ============================ */
 
 .project-info {
-  padding: 30px;
+  padding: 35px;
   position: relative;
+  background: linear-gradient(135deg, 
+    rgba(255, 255, 255, 0.05) 0%, 
+    rgba(255, 255, 255, 0.02) 100%);
+  border-radius: 0 0 30px 30px;
 }
 
 .project-number {
@@ -569,18 +600,23 @@
 
 @media (max-width: 1200px) {
   .projects-showcase {
-    gap: 25px;
+    gap: 30px;
+    padding: 30px 15px;
   }
   
   .project-showcase-item {
-    min-width: 350px;
-    max-width: 350px;
+    min-width: 400px;
+    max-width: 400px;
+  }
+  
+  .project-visual {
+    height: 260px;
   }
 }
 
 @media (max-width: 768px) {
   .projects {
-    padding: 40px 20px;
+    padding: 40px 15px;
   }
   
   .projects-header h2 {
@@ -592,20 +628,21 @@
   }
   
   .projects-showcase {
-    gap: 20px;
+    gap: 25px;
+    padding: 30px 10px;
   }
   
   .project-showcase-item {
-    min-width: 300px;
-    max-width: 300px;
+    min-width: 320px;
+    max-width: 320px;
   }
   
   .project-visual {
-    height: 200px;
+    height: 220px;
   }
   
   .project-info {
-    padding: 25px;
+    padding: 30px;
   }
   
   .project-title {
@@ -637,20 +674,21 @@
   }
   
   .projects-showcase {
-    gap: 15px;
+    gap: 20px;
+    padding: 25px 5px;
   }
   
   .project-showcase-item {
-    min-width: 280px;
-    max-width: 280px;
+    min-width: 290px;
+    max-width: 290px;
   }
   
   .project-visual {
-    height: 180px;
+    height: 200px;
   }
   
   .project-info {
-    padding: 20px;
+    padding: 25px;
   }
   
   .project-icon {

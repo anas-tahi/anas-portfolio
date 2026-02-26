@@ -18,28 +18,24 @@ export default function Contact({ content }) {
         </div>
       </div>
 
-      <div className="contact-grid">
-        <div className="contact-card primary">
-          <div className="card-header">
-            <div className="icon-circle">
-              <FaEnvelope className="icon" />
-            </div>
-            <h3>Email</h3>
+      <div className="contact-info">
+        <div className="contact-item">
+          <div className="contact-icon">
+            <FaEnvelope />
           </div>
-          <div className="card-content">
+          <div className="contact-details">
+            <h3>Email</h3>
             <p className="contact-value">{links.email}</p>
             <p className="contact-label">Get in touch for collaborations</p>
           </div>
         </div>
 
-        <div className="contact-card secondary">
-          <div className="card-header">
-            <div className="icon-circle">
-              <FaLinkedin className="icon" />
-            </div>
-            <h3>LinkedIn</h3>
+        <div className="contact-item">
+          <div className="contact-icon">
+            <FaLinkedin />
           </div>
-          <div className="card-content">
+          <div className="contact-details">
+            <h3>LinkedIn</h3>
             <a
               href={links.linkedin}
               target="_blank"
@@ -52,14 +48,12 @@ export default function Contact({ content }) {
           </div>
         </div>
 
-        <div className="contact-card tertiary">
-          <div className="card-header">
-            <div className="icon-circle">
-              <FaGithub className="icon" />
-            </div>
-            <h3>GitHub</h3>
+        <div className="contact-item">
+          <div className="contact-icon">
+            <FaGithub />
           </div>
-          <div className="card-content">
+          <div className="contact-details">
+            <h3>GitHub</h3>
             <a
               href={links.github}
               target="_blank"
@@ -72,29 +66,25 @@ export default function Contact({ content }) {
           </div>
         </div>
 
-        <div className="contact-card accent">
-          <div className="card-header">
-            <div className="icon-circle">
-              <FaMapMarkerAlt className="icon" />
-            </div>
-            <h3>Location</h3>
+        <div className="contact-item">
+          <div className="contact-icon">
+            <FaMapMarkerAlt />
           </div>
-          <div className="card-content">
+          <div className="contact-details">
+            <h3>Location</h3>
             <p className="contact-value">Available Worldwide</p>
             <p className="contact-label">Remote & On-site</p>
           </div>
         </div>
       </div>
 
-      <div className="contact-footer">
-        <div className="cta-section">
-          <h3>Ready to Build the Future Together?</h3>
-          <p>Let's collaborate on innovative solutions that push boundaries and exceed expectations</p>
-          <button className="cta-button">
-            <FaEnvelope className="button-icon" />
-            Start the Conversation
-          </button>
-        </div>
+      <div className="contact-cta">
+        <h3>Ready to Build the Future Together?</h3>
+        <p>Let's collaborate on innovative solutions that push boundaries and exceed expectations</p>
+        <button className="cta-button">
+          <FaEnvelope className="button-icon" />
+          Start the Conversation
+        </button>
       </div>
     </section>
   );

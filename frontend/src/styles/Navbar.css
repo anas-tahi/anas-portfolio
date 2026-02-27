@@ -64,7 +64,7 @@
   text-shadow: 0 2px 8px rgba(99, 102, 241, 0.5);
 }
 
-.nav-links button {
+.nav-links a {
   background: none;
   border: none;
   color: var(--text-primary);
@@ -76,18 +76,18 @@
   border-radius: 8px;
   text-decoration: none;
   position: relative;
+  display: inline-block;
 }
 
-.nav-links button:hover {
+.nav-links a:hover {
   color: var(--primary-500);
   background: var(--bg-secondary);
   transform: translateY(-2px);
 }
 
-.nav-links button.active {
-  color: var(--primary-600);
-  background: var(--gradient-primary);
+.nav-links a.active {
   color: white;
+  background: var(--gradient-primary);
   box-shadow: var(--shadow-md);
 }
 
@@ -95,14 +95,6 @@
   list-style: none;
   display: flex;
   gap: 25px;
-}
-
-.nav-links a {
-  text-decoration: none;
-  color: var(--text-secondary);
-  font-weight: 600;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  position: relative;
 }
 
 .nav-links a::after {

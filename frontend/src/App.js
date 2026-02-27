@@ -1,3 +1,4 @@
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { useEffect, useState } from "react";
 import Navbar from "./components/Navbar";
 import Header from "./components/Header";
@@ -10,11 +11,16 @@ import Loading from "./components/Loading";
 import AdminModal from "./components/AdminModal";
 import AdminDashboardModal from "./components/AdminDashboardModal";
 import ThemeToggle from "./components/ThemeToggle";
+import Home from "./pages/Home";
+import AboutPage from "./pages/AboutPage";
+import ProjectsPage from "./pages/ProjectsPage";
+import ContactPage from "./pages/ContactPage";
 import { getContent } from "./api";
 import "./styles/AdminModal.css";
 import "./styles/Colors.css";
 import "./styles/Animations.css";
 import "./styles/DarkTheme.css";
+import "./styles/App.css";
 
 export default function App() {
   const [loading, setLoading] = useState(true);
@@ -22,7 +28,6 @@ export default function App() {
   const [showLoginModal, setShowLoginModal] = useState(false);
   const [showDashboardModal, setShowDashboardModal] = useState(false);
   const [isAdmin, setIsAdmin] = useState(false);
-  const [currentPage, setCurrentPage] = useState(0);
 
   useEffect(() => {
     async function load() {
@@ -54,75 +59,42 @@ export default function App() {
     localStorage.removeItem("adminToken");
   };
 
-  const navigateToPage = (pageIndex) => {
-    setCurrentPage(pageIndex);
-  };
-
-  const handleKeyDown = (e) => {
-    if (e.key === 'ArrowLeft' && currentPage > 0) {
-      navigateToPage(currentPage - 1);
-    } else if (e.key === 'ArrowRight' && currentPage < 4) {
-      navigateToPage(currentPage + 1);
-    }
-  };
-
-  useEffect(() => {
-    window.addEventListener('keydown', handleKeyDown);
-    return () => window.removeEventListener('keydown', handleKeyDown);
-  }, [currentPage]);
-
   if (loading || !content) return <Loading />;
 
   return (
-    <>
-      <ThemeToggle />
-      
-      <Navbar 
-        content={content} 
-        onAdminClick={handleAdminClick}
-        onLogout={handleLogout}
-        navigateToPage={navigateToPage}
-        currentPage={currentPage}
-      />
-      
-      <div 
-        className="main-container"
-        style={{
-          transform: `translateX(-${currentPage * 100}vw)`
-        }}
-      >
-        <section id="header" className="horizontal-section">
-          <Header content={content} />
-        </section>
+    <Router>
+      <div className="app">
+        <ThemeToggle />
         
-        <section id="about" className="horizontal-section">
-          <About content={content} />
-        </section>
+        <Navbar 
+          content={content} 
+          onAdminClick={handleAdminClick}
+          onLogout={handleLogout}
+        />
         
-        <section id="skills" className="horizontal-section">
-          <Skills content={content} />
-        </section>
+        <main className="main-content">
+          <Routes>
+            <Route path="/" element={<Home content={content} />} />
+            <Route path="/about" element={<AboutPage content={content} />} />
+            <Route path="/projects" element={<ProjectsPage content={content} />} />
+            <Route path="/contact" element={<ContactPage content={content} />} />
+          </Routes>
+        </main>
         
-        <section id="projects" className="horizontal-section">
-          <Projects content={content} />
-        </section>
+        <Footer content={content} />
         
-        <section id="contact" className="horizontal-section">
-          <Contact content={content} />
-        </section>
+        <AdminModal
+          isOpen={showLoginModal}
+          onClose={() => setShowLoginModal(false)}
+          onLoginSuccess={handleLoginSuccess}
+        />
+        
+        <AdminDashboardModal
+          isOpen={showDashboardModal}
+          onClose={() => setShowDashboardModal(false)}
+          onLogout={handleLogout}
+        />
       </div>
-      
-      <AdminModal
-        isOpen={showLoginModal}
-        onClose={() => setShowLoginModal(false)}
-        onLoginSuccess={handleLoginSuccess}
-      />
-      
-      <AdminDashboardModal
-        isOpen={showDashboardModal}
-        onClose={() => setShowDashboardModal(false)}
-        onLogout={handleLogout}
-      />
-    </>
+    </Router>
   );
 }

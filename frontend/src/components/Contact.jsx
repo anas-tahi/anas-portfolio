@@ -9,82 +9,111 @@ export default function Contact({ content }) {
 
   return (
     <section id="contact" ref={revealRef} className="contact reveal">
-      <div className="contact-header">
-        <h2>Let's Create Something Extraordinary</h2>
-        <p className="contact-subtitle">Transform your vision into reality with cutting-edge solutions and innovative development</p>
-        <div className="contact-badge">
-          <FaRocket className="rocket-icon" />
-          <span>Open to Exciting Opportunities</span>
-        </div>
-      </div>
-
-      <div className="contact-info">
-        <div className="contact-item">
-          <div className="contact-icon">
-            <FaEnvelope />
-          </div>
-          <div className="contact-details">
-            <h3>Email</h3>
-            <p className="contact-value">{links.email}</p>
-            <p className="contact-label">Get in touch for collaborations</p>
+      <div className="contact-hero">
+        <div className="hero-content">
+          <h1 className="hero-title">Let's Create Something Extraordinary</h1>
+          <p className="hero-subtitle">Transform your vision into reality with cutting-edge solutions and innovative development</p>
+          <div className="hero-badge">
+            <FaRocket className="rocket-icon" />
+            <span>Open to Exciting Opportunities</span>
           </div>
         </div>
-
-        <div className="contact-item">
-          <div className="contact-icon">
-            <FaLinkedin />
-          </div>
-          <div className="contact-details">
-            <h3>LinkedIn</h3>
-            <a
-              href={links.linkedin}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="contact-link"
-            >
-              Professional Network
-            </a>
-            <p className="contact-label">Connect for opportunities</p>
-          </div>
-        </div>
-
-        <div className="contact-item">
-          <div className="contact-icon">
-            <FaGithub />
-          </div>
-          <div className="contact-details">
-            <h3>GitHub</h3>
-            <a
-              href={links.github}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="contact-link"
-            >
-              View My Work
-            </a>
-            <p className="contact-label">Explore open source projects</p>
-          </div>
-        </div>
-
-        <div className="contact-item">
-          <div className="contact-icon">
-            <FaMapMarkerAlt />
-          </div>
-          <div className="contact-details">
-            <h3>Location</h3>
-            <p className="contact-value">Available Worldwide</p>
-            <p className="contact-label">Remote & On-site</p>
+        <div className="hero-visual">
+          <div className="floating-shapes">
+            <div className="shape shape-1"></div>
+            <div className="shape shape-2"></div>
+            <div className="shape shape-3"></div>
           </div>
         </div>
       </div>
 
-      <div className="contact-cta">
-        <h3>Ready to Build the Future Together?</h3>
-        <p>Let's collaborate on innovative solutions that push boundaries and exceed expectations</p>
-        <button className="cta-button">
-          <FaEnvelope className="button-icon" />
-          Start the Conversation
-        </button>
+      <div className="contact-content">
+        <div className="contact-section">
+          <h2 className="section-title">Get In Touch</h2>
+          <div className="contact-grid">
+            <div className="contact-card">
+              <div className="card-icon">
+                <FaEnvelope />
+              </div>
+              <div className="card-info">
+                <h3>Email</h3>
+                <p className="card-value">{links.email}</p>
+                <p className="card-description">Get in touch for collaborations</p>
+              </div>
+            </div>
+
+            <div className="contact-card">
+              <div className="card-icon">
+                <FaLinkedin />
+              </div>
+              <div className="card-info">
+                <h3>LinkedIn</h3>
+                <a
+                  href={links.linkedin}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="card-link"
+                >
+                  Professional Network
+                </a>
+                <p className="card-description">Connect for opportunities</p>
+              </div>
+            </div>
+
+            <div className="contact-card">
+              <div className="card-icon">
+                <FaGithub />
+              </div>
+              <div className="card-info">
+                <h3>GitHub</h3>
+                <a
+                  href={links.github}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="card-link"
+                >
+                  View My Work
+                </a>
+                <p className="card-description">Explore open source projects</p>
+              </div>
+            </div>
+
+            <div className="contact-card">
+              <div className="card-icon">
+                <FaMapMarkerAlt />
+              </div>
+              <div className="card-info">
+                <h3>Location</h3>
+                <p className="card-value">Available Worldwide</p>
+                <p className="card-description">Remote & On-site</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div className="contact-cta-section">
+          <div className="cta-content">
+            <h2 className="cta-title">Ready to Build the Future Together?</h2>
+            <p className="cta-description">Let's collaborate on innovative solutions that push boundaries and exceed expectations</p>
+            <div className="cta-buttons">
+              <button className="cta-primary">
+                <FaEnvelope className="button-icon" />
+                Start Conversation
+              </button>
+              <button className="cta-secondary">
+                <FaLinkedin className="button-icon" />
+                Connect on LinkedIn
+              </button>
+            </div>
+          </div>
+          <div className="cta-visual">
+            <div className="pulse-dots">
+              <div className="dot dot-1"></div>
+              <div className="dot dot-2"></div>
+              <div className="dot dot-3"></div>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
   );

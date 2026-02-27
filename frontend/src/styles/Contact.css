@@ -183,16 +183,16 @@
 
 .contact-card {
   background: linear-gradient(135deg, 
-    rgba(255, 255, 255, 0.9) 0%, 
-    rgba(249, 250, 251, 0.9) 100%);
-  border: 1px solid rgba(99, 102, 241, 0.1);
+    rgba(30, 41, 59, 0.9) 0%, 
+    rgba(15, 23, 42, 0.9) 100%);
+  border: 1px solid rgba(99, 102, 241, 0.2);
   border-radius: 24px;
   padding: 40px 30px;
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   position: relative;
   overflow: hidden;
   backdrop-filter: blur(20px);
-  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
 }
 
 .contact-card::before {
@@ -215,11 +215,11 @@
 
 .contact-card:hover {
   transform: translateY(-10px) scale(1.02);
-  box-shadow: 0 20px 60px rgba(99, 102, 241, 0.15);
-  border-color: rgba(99, 102, 241, 0.3);
+  box-shadow: 0 20px 60px rgba(99, 102, 241, 0.3);
+  border-color: rgba(99, 102, 241, 0.4);
   background: linear-gradient(135deg, 
-    rgba(255, 255, 255, 0.95) 0%, 
-    rgba(249, 250, 251, 0.95) 100%);
+    rgba(30, 41, 59, 0.95) 0%, 
+    rgba(15, 23, 42, 0.95) 100%);
 }
 
 .card-icon {
@@ -309,12 +309,14 @@
   gap: 60px;
   padding: 80px 40px;
   background: linear-gradient(135deg, 
-    rgba(99, 102, 241, 0.05) 0%, 
-    rgba(139, 92, 246, 0.05) 100%);
+    rgba(30, 41, 59, 0.8) 0%, 
+    rgba(15, 23, 42, 0.8) 100%);
+  border: 1px solid rgba(99, 102, 241, 0.2);
   border-radius: 32px;
   position: relative;
   overflow: hidden;
   backdrop-filter: blur(20px);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
 }
 
 .cta-content {

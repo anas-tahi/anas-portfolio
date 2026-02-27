@@ -1,0 +1,314 @@
+/* ============================
+   IMPRESSIVE PORTFOLIO LAYOUT
+============================ */
+
+.portfolio-container {
+  display: flex;
+  width: 500vw; /* 5 sections * 100vw */
+  height: 100vh;
+  transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+  will-change: transform;
+}
+
+.portfolio-section {
+  width: 100vw;
+  height: 100vh;
+  flex-shrink: 0;
+  overflow-y: auto;
+  overflow-x: hidden;
+  position: relative;
+  scroll-behavior: smooth;
+}
+
+/* ============================
+   SECTION ENHANCEMENTS
+============================ */
+
+.portfolio-section::-webkit-scrollbar {
+  width: 8px;
+}
+
+.portfolio-section::-webkit-scrollbar-track {
+  background: var(--bg-secondary);
+}
+
+.portfolio-section::-webkit-scrollbar-thumb {
+  background: var(--gradient-primary);
+  border-radius: 4px;
+}
+
+.portfolio-section::-webkit-scrollbar-thumb:hover {
+  background: var(--primary-600);
+}
+
+/* ============================
+   NAVIGATION INDICATORS
+============================ */
+
+.nav-indicators {
+  position: fixed;
+  right: 30px;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.nav-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--bg-secondary);
+  border: 2px solid var(--primary-300);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.nav-dot:hover {
+  transform: scale(1.2);
+  border-color: var(--primary-500);
+}
+
+.nav-dot.active {
+  background: var(--gradient-primary);
+  border-color: var(--primary-600);
+  box-shadow: 0 0 20px rgba(99, 102, 241, 0.5);
+}
+
+.nav-dot.active::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: var(--primary-500);
+  opacity: 0.2;
+  animation: pulse 2s ease-in-out infinite;
+}
+
+/* ============================
+   KEYBOARD NAVIGATION
+============================ */
+
+.keyboard-hint {
+  position: fixed;
+  bottom: 30px;
+  left: 30px;
+  background: var(--glass-bg);
+  backdrop-filter: blur(10px);
+  border: 1px solid var(--glass-border);
+  border-radius: 12px;
+  padding: 15px 20px;
+  font-size: 14px;
+  color: var(--text-secondary);
+  z-index: 1000;
+  opacity: 0.7;
+  transition: all 0.3s ease;
+}
+
+.keyboard-hint:hover {
+  opacity: 1;
+  transform: translateY(-2px);
+}
+
+.keyboard-hint kbd {
+  background: var(--bg-primary);
+  border: 1px solid var(--border-light);
+  border-radius: 4px;
+  padding: 2px 6px;
+  font-family: monospace;
+  font-size: 12px;
+  margin: 0 2px;
+}
+
+/* ============================
+   PAGE TRANSITIONS
+============================ */
+
+.page-transition-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, 
+    var(--primary-500) 0%, 
+    var(--primary-600) 50%, 
+    var(--accent-500) 100%);
+  z-index: 9999;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.4s ease;
+}
+
+.page-transition-overlay.active {
+  opacity: 0.1;
+}
+
+/* ============================
+   SECTION BACKGROUNDS
+============================ */
+
+#header.portfolio-section {
+  background: linear-gradient(135deg, 
+    rgba(99, 102, 241, 0.02) 0%, 
+    rgba(139, 92, 246, 0.02) 100%);
+}
+
+#about.portfolio-section {
+  background: linear-gradient(135deg, 
+    rgba(139, 92, 246, 0.02) 0%, 
+    rgba(236, 72, 153, 0.02) 100%);
+}
+
+#skills.portfolio-section {
+  background: linear-gradient(135deg, 
+    rgba(236, 72, 153, 0.02) 0%, 
+    rgba(99, 102, 241, 0.02) 100%);
+}
+
+#projects.portfolio-section {
+  background: linear-gradient(135deg, 
+    rgba(99, 102, 241, 0.02) 0%, 
+    rgba(139, 92, 246, 0.02) 100%);
+}
+
+#contact.portfolio-section {
+  background: linear-gradient(135deg, 
+    rgba(139, 92, 246, 0.02) 0%, 
+    rgba(236, 72, 153, 0.02) 100%);
+}
+
+/* ============================
+   FLOATING ELEMENTS
+============================ */
+
+.floating-nav {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  z-index: 1;
+}
+
+.floating-shape {
+  position: absolute;
+  border-radius: 50%;
+  background: linear-gradient(135deg, 
+    rgba(99, 102, 241, 0.1) 0%, 
+    rgba(139, 92, 246, 0.1) 100%);
+  backdrop-filter: blur(10px);
+  animation: float-random 20s ease-in-out infinite;
+}
+
+.shape-1 {
+  width: 100px;
+  height: 100px;
+  top: -200px;
+  left: -200px;
+  animation-delay: 0s;
+}
+
+.shape-2 {
+  width: 150px;
+  height: 150px;
+  top: 200px;
+  right: -300px;
+  animation-delay: 5s;
+}
+
+.shape-3 {
+  width: 80px;
+  height: 80px;
+  bottom: -150px;
+  left: 300px;
+  animation-delay: 10s;
+}
+
+/* ============================
+   ANIMATIONS
+============================ */
+
+@keyframes pulse {
+  0%, 100% {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 0.2;
+  }
+  50% {
+    transform: translate(-50%, -50%) scale(1.5);
+    opacity: 0.1;
+  }
+}
+
+@keyframes float-random {
+  0%, 100% {
+    transform: translate(0, 0) rotate(0deg) scale(1);
+  }
+  25% {
+    transform: translate(30px, -20px) rotate(90deg) scale(1.1);
+  }
+  50% {
+    transform: translate(-20px, 30px) rotate(180deg) scale(0.9);
+  }
+  75% {
+    transform: translate(40px, 10px) rotate(270deg) scale(1.05);
+  }
+}
+
+/* ============================
+   RESPONSIVE DESIGN
+============================ */
+
+@media (max-width: 768px) {
+  .portfolio-container {
+    width: 500vw;
+  }
+  
+  .nav-indicators {
+    right: 15px;
+    gap: 10px;
+  }
+  
+  .nav-dot {
+    width: 10px;
+    height: 10px;
+  }
+  
+  .keyboard-hint {
+    bottom: 15px;
+    left: 15px;
+    font-size: 12px;
+    padding: 10px 15px;
+  }
+  
+  .floating-shape {
+    display: none;
+  }
+}
+
+@media (max-width: 480px) {
+  .portfolio-container {
+    width: 500vw;
+  }
+  
+  .nav-indicators {
+    right: 10px;
+    gap: 8px;
+  }
+  
+  .nav-dot {
+    width: 8px;
+    height: 8px;
+  }
+  
+  .keyboard-hint {
+    display: none;
+  }
+}

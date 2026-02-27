@@ -1,9 +1,7 @@
 import { useState, useEffect } from "react";
-import { Link, useLocation } from "react-router-dom";
 import "./../styles/Navbar.css";
 
-export default function Navbar({ content, onAdminClick, onLogout }) {
-  const location = useLocation();
+export default function Navbar({ content, onAdminClick, onLogout, navigateToPage, currentPage }) {
   const [open, setOpen] = useState(false);
   const [isAdmin, setIsAdmin] = useState(false);
 
@@ -25,14 +23,14 @@ export default function Navbar({ content, onAdminClick, onLogout }) {
   return (
     <nav className="navbar">
       <div className="logo-container">
-        <Link to="/" className="logo-link">
+        <button onClick={() => navigateToPage(0)} className="logo-link">
           <img src="/logo.png" alt="Logo" className="logo-img" />
-        </Link>
+        </button>
 
         {/* Clickable name from backend */}
-        <Link to="/" className="logo-text-link">
+        <button onClick={() => navigateToPage(0)} className="logo-text-link">
           <span className="logo-text">Anas Tahir</span>
-        </Link>
+        </button>
       </div>
 
       <div className="hamburger" onClick={() => setOpen(!open)}>
@@ -40,9 +38,10 @@ export default function Navbar({ content, onAdminClick, onLogout }) {
       </div>
 
       <ul className={open ? "nav-links open" : "nav-links"}>
-        <li><Link to="/about" className={location.pathname === "/about" ? "active" : ""}>About</Link></li>
-        <li><Link to="/projects" className={location.pathname === "/projects" ? "active" : ""}>Projects</Link></li>
-        <li><Link to="/contact" className={location.pathname === "/contact" ? "active" : ""}>Contact</Link></li>
+        <li><button onClick={() => navigateToPage(1)} className={currentPage === 1 ? "active" : ""}>About</button></li>
+        <li><button onClick={() => navigateToPage(2)} className={currentPage === 2 ? "active" : ""}>Skills</button></li>
+        <li><button onClick={() => navigateToPage(3)} className={currentPage === 3 ? "active" : ""}>Projects</button></li>
+        <li><button onClick={() => navigateToPage(4)} className={currentPage === 4 ? "active" : ""}>Contact</button></li>
         <li className="admin-nav-item">
           {isAdmin ? (
             <button onClick={onLogout} className="admin-logout-btn">

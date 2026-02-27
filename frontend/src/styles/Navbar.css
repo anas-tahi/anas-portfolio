@@ -64,7 +64,7 @@
   text-shadow: 0 2px 8px rgba(99, 102, 241, 0.5);
 }
 
-.nav-links a {
+.nav-links button {
   background: none;
   border: none;
   color: var(--text-primary);
@@ -76,16 +76,15 @@
   border-radius: 8px;
   text-decoration: none;
   position: relative;
-  display: inline-block;
 }
 
-.nav-links a:hover {
+.nav-links button:hover {
   color: var(--primary-500);
   background: var(--bg-secondary);
   transform: translateY(-2px);
 }
 
-.nav-links a.active {
+.nav-links button.active {
   color: white;
   background: var(--gradient-primary);
   box-shadow: var(--shadow-md);

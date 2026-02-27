@@ -1,4 +1,3 @@
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { useEffect, useState } from "react";
 import Navbar from "./components/Navbar";
 import Header from "./components/Header";
@@ -11,16 +10,12 @@ import Loading from "./components/Loading";
 import AdminModal from "./components/AdminModal";
 import AdminDashboardModal from "./components/AdminDashboardModal";
 import ThemeToggle from "./components/ThemeToggle";
-import Home from "./pages/Home";
-import AboutPage from "./pages/AboutPage";
-import ProjectsPage from "./pages/ProjectsPage";
-import ContactPage from "./pages/ContactPage";
 import { getContent } from "./api";
 import "./styles/AdminModal.css";
 import "./styles/Colors.css";
 import "./styles/Animations.css";
 import "./styles/DarkTheme.css";
-import "./styles/App.css";
+import "./styles/Portfolio.css";
 
 export default function App() {
   const [loading, setLoading] = useState(true);
@@ -28,6 +23,7 @@ export default function App() {
   const [showLoginModal, setShowLoginModal] = useState(false);
   const [showDashboardModal, setShowDashboardModal] = useState(false);
   const [isAdmin, setIsAdmin] = useState(false);
+  const [currentPage, setCurrentPage] = useState(0);
 
   useEffect(() => {
     async function load() {
@@ -59,42 +55,98 @@ export default function App() {
     localStorage.removeItem("adminToken");
   };
 
+  const navigateToPage = (pageIndex) => {
+    setCurrentPage(pageIndex);
+  };
+
+  const handleKeyDown = (e) => {
+    if (e.key === 'ArrowLeft' && currentPage > 0) {
+      navigateToPage(currentPage - 1);
+    } else if (e.key === 'ArrowRight' && currentPage < 4) {
+      navigateToPage(currentPage + 1);
+    }
+  };
+
+  useEffect(() => {
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [currentPage]);
+
   if (loading || !content) return <Loading />;
 
   return (
-    <Router>
-      <div className="app">
-        <ThemeToggle />
+    <>
+      <ThemeToggle />
+      
+      <Navbar 
+        content={content} 
+        onAdminClick={handleAdminClick}
+        onLogout={handleLogout}
+        navigateToPage={navigateToPage}
+        currentPage={currentPage}
+      />
+      
+      <div 
+        className="portfolio-container"
+        style={{
+          transform: `translateX(-${currentPage * 100}vw)`
+        }}
+      >
+        <section id="header" className="portfolio-section">
+          <Header content={content} />
+        </section>
         
-        <Navbar 
-          content={content} 
-          onAdminClick={handleAdminClick}
-          onLogout={handleLogout}
-        />
+        <section id="about" className="portfolio-section">
+          <About content={content} />
+        </section>
         
-        <main className="main-content">
-          <Routes>
-            <Route path="/" element={<Home content={content} />} />
-            <Route path="/about" element={<AboutPage content={content} />} />
-            <Route path="/projects" element={<ProjectsPage content={content} />} />
-            <Route path="/contact" element={<ContactPage content={content} />} />
-          </Routes>
-        </main>
+        <section id="skills" className="portfolio-section">
+          <Skills content={content} />
+        </section>
         
-        <Footer content={content} />
+        <section id="projects" className="portfolio-section">
+          <Projects content={content} />
+        </section>
         
-        <AdminModal
-          isOpen={showLoginModal}
-          onClose={() => setShowLoginModal(false)}
-          onLoginSuccess={handleLoginSuccess}
-        />
-        
-        <AdminDashboardModal
-          isOpen={showDashboardModal}
-          onClose={() => setShowDashboardModal(false)}
-          onLogout={handleLogout}
-        />
+        <section id="contact" className="portfolio-section">
+          <Contact content={content} />
+        </section>
       </div>
-    </Router>
+      
+      {/* Navigation Indicators */}
+      <div className="nav-indicators">
+        {[0, 1, 2, 3, 4].map((index) => (
+          <div
+            key={index}
+            className={`nav-dot ${currentPage === index ? 'active' : ''}`}
+            onClick={() => navigateToPage(index)}
+          />
+        ))}
+      </div>
+      
+      {/* Keyboard Navigation Hint */}
+      <div className="keyboard-hint">
+        Use <kbd>←</kbd> <kbd>→</kbd> to navigate
+      </div>
+      
+      {/* Floating Background Elements */}
+      <div className="floating-nav">
+        <div className="floating-shape shape-1"></div>
+        <div className="floating-shape shape-2"></div>
+        <div className="floating-shape shape-3"></div>
+      </div>
+      
+      <AdminModal
+        isOpen={showLoginModal}
+        onClose={() => setShowLoginModal(false)}
+        onLoginSuccess={handleLoginSuccess}
+      />
+      
+      <AdminDashboardModal
+        isOpen={showDashboardModal}
+        onClose={() => setShowDashboardModal(false)}
+        onLogout={handleLogout}
+      />
+    </>
   );
 }

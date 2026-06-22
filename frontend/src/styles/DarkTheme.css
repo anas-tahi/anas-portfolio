@@ -1,0 +1,4 @@
+/* Dark theme handled via CSS variables in Colors.css */
+[data-theme="dark"] body {
+  background: var(--bg);
+}

@@ -1,0 +1,169 @@
+/* ============================
+   APP LAYOUT
+============================ */
+
+.app {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.main-content {
+  flex: 1;
+  padding-top: 80px; /* Account for fixed navbar */
+}
+
+/* ============================
+   PAGE HERO SECTIONS
+============================ */
+
+.page-hero {
+  text-align: center;
+  padding: 80px 20px 60px;
+  background: linear-gradient(135deg, 
+    rgba(99, 102, 241, 0.05) 0%, 
+    rgba(139, 92, 246, 0.05) 50%, 
+    rgba(236, 72, 153, 0.05) 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+.page-hero::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(45deg, 
+    transparent, 
+    rgba(99, 102, 241, 0.05), 
+    transparent);
+  animation: shimmer 8s ease-in-out infinite;
+}
+
+.page-hero h1 {
+  font-size: 56px;
+  font-weight: 900;
+  background: linear-gradient(135deg, 
+    var(--primary-500) 0%, 
+    var(--primary-600) 50%, 
+    var(--accent-500) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 20px;
+  letter-spacing: -2px;
+  position: relative;
+  z-index: 1;
+  animation: fadeInUp 1s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.page-hero p {
+  font-size: 20px;
+  color: var(--text-secondary);
+  max-width: 600px;
+  margin: 0 auto;
+  line-height: 1.6;
+  position: relative;
+  z-index: 1;
+  animation: fadeInUp 1s cubic-bezier(0.4, 0, 0.2, 1) 0.2s;
+  opacity: 0;
+  animation-fill-mode: forwards;
+}
+
+/* ============================
+   HOME PAGE
+============================ */
+
+.home-page {
+  min-height: 100vh;
+}
+
+/* ============================
+   ABOUT PAGE
+============================ */
+
+.about-page {
+  min-height: 100vh;
+}
+
+/* ============================
+   PROJECTS PAGE
+============================ */
+
+.projects-page {
+  min-height: 100vh;
+}
+
+/* ============================
+   CONTACT PAGE
+============================ */
+
+.contact-page {
+  min-height: 100vh;
+}
+
+/* ============================
+   ANIMATIONS
+============================ */
+
+@keyframes shimmer {
+  0% {
+    transform: translateX(-100%) translateY(-100%) rotate(45deg);
+  }
+  100% {
+    transform: translateX(100%) translateY(100%) rotate(45deg);
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ============================
+   RESPONSIVE DESIGN
+============================ */
+
+@media (max-width: 768px) {
+  .main-content {
+    padding-top: 70px;
+  }
+  
+  .page-hero {
+    padding: 60px 20px 40px;
+  }
+  
+  .page-hero h1 {
+    font-size: 42px;
+  }
+  
+  .page-hero p {
+    font-size: 18px;
+  }
+}
+
+@media (max-width: 480px) {
+  .main-content {
+    padding-top: 60px;
+  }
+  
+  .page-hero {
+    padding: 40px 15px 30px;
+  }
+  
+  .page-hero h1 {
+    font-size: 32px;
+  }
+  
+  .page-hero p {
+    font-size: 16px;
+  }
+}

@@ -1,0 +1,59 @@
+{
+  "profile": {
+    "name": "Anas Tahir",
+    "title": "Full Stack & Android Developer",
+    "about": "I am a passionate Full Stack and Android Developer pursuing an M.Sc. in Computer Science at UGR Granada, Spain. I love building beautiful, functional applications that solve real-world problems — from AI-powered web apps to mobile experiences.",
+    "profilePic": "/profile.jpeg",
+    "cv": "/mycv.pdf",
+    "links": {
+      "email": "anasstahir4@gmail.com",
+      "linkedin": "https://www.linkedin.com/in/anas-tahir-59540b294/",
+      "github": "https://github.com/anas-tahi"
+    }
+  },
+  "skills": [
+    { "name": "React", "level": 90 },
+    { "name": "JavaScript", "level": 85 },
+    { "name": "Node.js", "level": 80 },
+    { "name": "Java / Spring Boot", "level": 75 },
+    { "name": "React Native", "level": 70 },
+    { "name": "MongoDB", "level": 70 },
+    { "name": "HTML / CSS", "level": 90 },
+    { "name": "Python", "level": 65 },
+    { "name": "Docker", "level": 55 },
+    { "name": "AI / Gemini API", "level": 60 }
+  ],
+  "projects": [
+    {
+      "title": "AI Football Predictor",
+      "description": "Daily football predictions powered by AI — uses ELO ratings, form, head-to-head stats, and live fixtures from football-data.org. Built with Next.js and deployed on Render.",
+      "image": "/uploads/file-1771561132288-988584032.png",
+      "technologies": ["Next.js", "Node.js", "Football API", "Upstash Redis"],
+      "demoUrl": "https://ai-football-predictor-0nzw.onrender.com",
+      "githubUrl": "https://github.com/anas-tahi/ai-football-predictor"
+    },
+    {
+      "title": "ShopCart — Spring Boot",
+      "description": "Full-stack shopping cart app with product management, category filtering, stock tracking, and Spring Security authentication. Features a modern dark UI with quantity controls.",
+      "image": "/uploads/file-1771561137812-253343441.png",
+      "technologies": ["Java", "Spring Boot", "Spring Security", "Thymeleaf", "H2"],
+      "demoUrl": "https://springboot-app-8ohx.onrender.com",
+      "githubUrl": "https://github.com/anas-tahi/springboot-app"
+    },
+    {
+      "title": "SoundWave — Music App",
+      "description": "Full-stack music sharing and discovery mobile app. Upload tracks, follow artists, real-time feed with Socket.IO, JWT auth, and audio streaming. React Native + Node.js + MongoDB.",
+      "image": "/uploads/file-1771560858950-423761642.png",
+      "technologies": ["React Native", "Expo", "Node.js", "MongoDB", "Socket.IO"],
+      "demoUrl": "https://musicapp-r2hb.onrender.com",
+      "githubUrl": "https://github.com/anas-tahi/musicapp"
+    }
+  ],
+  "contact": {
+    "links": {
+      "email": "anasstahir4@gmail.com",
+      "linkedin": "https://www.linkedin.com/in/anas-tahir-59540b294/",
+      "github": "https://github.com/anas-tahi"
+    }
+  }
+}

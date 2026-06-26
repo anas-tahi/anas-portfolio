@@ -25,6 +25,14 @@
   ],
   "projects": [
     {
+      "title": "DriveES — Car Rental Spain",
+      "description": "Full-stack premium car rental platform for Spain. Features microservices backend (auth, cars, booking, payment), dark red UI with 3D animations, real-time booking flow, MongoDB Atlas, JWT auth, PayPal integration, and admin dashboard with analytics.",
+      "image": "/uploads/file-1771560858950-423761642.png",
+      "technologies": ["React", "Node.js", "MongoDB", "Microservices", "JWT", "PayPal", "Framer Motion"],
+      "demoUrl": "https://drivees-frontend.onrender.com",
+      "githubUrl": "https://github.com/anas-tahi/rentalcar"
+    },
+    {
       "title": "AI Football Predictor",
       "description": "Daily football predictions powered by AI — uses ELO ratings, form, head-to-head stats, and live fixtures from football-data.org. Built with Next.js and deployed on Render.",
       "image": "/uploads/file-1771561132288-988584032.png",
